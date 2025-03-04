@@ -145,7 +145,7 @@ I enjoy exploring new QA strategies, tools, and frameworks to optimize testing p
                 </div>
             </section>
 
-            <!--===== WORK =====-->
+ <!--===== WORK =====-->
 <section class="work section" id="work">
     <h2 class="section-title">Work</h2>
 
@@ -171,18 +171,27 @@ I enjoy exploring new QA strategies, tools, and frameworks to optimize testing p
     </div>
 </section>
 
-<!-- Modal -->
+<!-- Flip Card Modal -->
 <div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" id="closeModal">&times;</span>
-        <h2 id="modalTitle">Project Title</h2>
-        <img id="modalImage" src="" alt="Project Image" style="width: 100%; border-radius: 5px;">
-        <p id="modalDescription">Project Description</p>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <!-- Front Side -->
+            <div class="flip-card-front">
+                <img id="modalImage" src="" alt="Project Image">
+            </div>
+            <!-- Back Side -->
+            <div class="flip-card-back">
+                <span class="close-btn" id="closeModal">&times;</span>
+                <h2 id="modalTitle">Project Title</h2>
+                <p id="modalDescription">Project Description</p>
+            </div>
+        </div>
     </div>
 </div>
 
 <!-- Styles -->
 <style>
+    /* Modal Styles */
     .modal {
         display: none;
         position: fixed;
@@ -196,20 +205,60 @@ I enjoy exploring new QA strategies, tools, and frameworks to optimize testing p
         align-items: center;
     }
 
-    .modal-content {
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
+    /* Flip Card Styles */
+    .flip-card {
         width: 300px;
-        text-align: center;
-        position: relative;
+        height: 400px;
+        perspective: 1000px;
     }
 
+    .flip-card-inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backface-visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    /* Front Side */
+    .flip-card-front {
+        background: white;
+    }
+
+    .flip-card-front img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    /* Back Side */
+    .flip-card-back {
+        background: white;
+        transform: rotateY(180deg);
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Close Button */
     .close-btn {
         position: absolute;
         top: 10px;
         right: 15px;
-        font-size: 20px;
+        font-size: 24px;
         cursor: pointer;
     }
 </style>
@@ -217,6 +266,8 @@ I enjoy exploring new QA strategies, tools, and frameworks to optimize testing p
 <!-- Script -->
 <script>
     const modal = document.getElementById("modal");
+    const flipCard = document.querySelector(".flip-card");
+    const flipCardInner = document.querySelector(".flip-card-inner");
     const closeModal = document.getElementById("closeModal");
     const modalImage = document.getElementById("modalImage");
     const modalTitle = document.getElementById("modalTitle");
@@ -229,16 +280,28 @@ I enjoy exploring new QA strategies, tools, and frameworks to optimize testing p
             modalImage.src = this.getAttribute("data-image");
             modalTitle.textContent = this.getAttribute("data-title");
             modalDescription.textContent = this.getAttribute("data-description");
+
+            // Trigger flip effect
+            setTimeout(() => {
+                flipCard.classList.add("flipped");
+            }, 100);
         });
     });
 
     closeModal.addEventListener("click", function () {
-        modal.style.display = "none";
+        // Flip back before hiding the modal
+        flipCard.classList.remove("flipped");
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 500); // Wait for flip animation to complete
     });
 
     window.addEventListener("click", function(event) {
         if (event.target === modal) {
-            modal.style.display = "none";
+            flipCard.classList.remove("flipped");
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 500);
         }
     });
 </script>

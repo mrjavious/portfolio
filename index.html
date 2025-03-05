@@ -144,71 +144,36 @@ I enjoy exploring new QA strategies, tools, and frameworks to optimize testing p
                     </div>
                 </div>
             </section>
-            
-<!-- Customer Logo Scroller -->
-<section class="customer-logos">
-    <div class="logo-scroller">
-        <div class="logo-track">
-            <img src="assets/logos/nbcuniversal.png" alt="NBCUniversal">
-            <img src="assets/logos/netflix.png" alt="Netflix">
-            <img src="assets/logos/paramount.png" alt="Paramount">
-            <img src="assets/logos/paypal.png" alt="PayPal">
-            <img src="assets/logos/uber.png" alt="Uber">
-            <img src="assets/logos/amazon.png" alt="Amazon">
-            <img src="assets/logos/athenahealth.png" alt="AthenaHealth">
-            
-            <!-- Duplicate for infinite scrolling effect -->
-            <img src="assets/logos/nbcuniversal.png" alt="NBCUniversal">
-            <img src="assets/logos/netflix.png" alt="Netflix">
-            <img src="assets/logos/paramount.png" alt="Paramount">
-            <img src="assets/logos/paypal.png" alt="PayPal">
-            <img src="assets/logos/uber.png" alt="Uber">
-            <img src="assets/logos/amazon.png" alt="Amazon">
-            <img src="assets/logos/athenahealth.png" alt="AthenaHealth">
-        </div>
-    </div>
-</section>
-
-<!-- CSS for Scrolling Logo Bar -->
-<style>
-    .customer-logos {
-        overflow: hidden;
-        white-space: nowrap;
-        background: #d3e9ff; /* Light blue background */
-        padding: 20px 0;
-    }
-
-    .logo-scroller {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .logo-track {
-        display: flex;
-        animation: scroll 20s linear infinite;
-    }
-
-    .logo-track img {
-        max-height: 50px; /* Adjust logo size */
-        margin: 0 20px;
-    }
-
-    @keyframes scroll {
-        from {
-            transform: translateX(0%);
-        }
-        to {
-            transform: translateX(-50%);
-        }
-    }
-</style>
 
  <!--===== WORK =====-->
-<section class="work section" id="work">
+ <section class="work section" id="work">
     <h2 class="section-title">Work</h2>
+    
+<!-- Customer Logo Scroller -->
+<div class="slider" reverse="true" style="
+--width: 200px;
+--height: 150px;
+--quantity: 16;
+">
+<div class="list">
+    <div class="item" style="--position: 1"><img src="assets/logos/snapinc.png" alt=""></div>
+    <div class="item" style="--position: 2"><img src="assets/logos/dollartree.png" alt=""></div>
+    <div class="item" style="--position: 3"><img src="assets/logos/grindr.png" alt=""></div>
+    <div class="item" style="--position: 4"><img src="assets/logos/manu.png" alt=""></div>
+    <div class="item" style="--position: 5"><img src="assets/logos/dematic.png" alt=""></div>
+    <div class="item" style="--position: 6"><img src="assets/logos/rbs.png" alt=""></div>
+    <div class="item" style="--position: 7"><img src="assets/logos/onedrive.png" alt=""></div>
+    <div class="item" style="--position: 8"><img src="assets/logos/adt.png" alt=""></div>
+    <div class="item" style="--position: 9"><img src="assets/logos/spotify.png" alt=""></div>
+    <div class="item" style="--position: 10"><img src="assets/logos/udacity.png" alt=""></div>
+    <div class="item" style="--position: 11"><img src="assets/logos/laserfiche.png" alt=""></div>
+    <div class="item" style="--position: 12"><img src="assets/logos/goodpath.png" alt=""></div>
+    <div class="item" style="--position: 13"><img src="assets/logos/aldi.png" alt=""></div>
+    <div class="item" style="--position: 14"><img src="assets/logos/globality.png" alt=""></div>
+    <div class="item" style="--position: 15"><img src="assets/logos/chartercommunications.png" alt=""></div>
+    <div class="item" style="--position: 16"><img src="assets/logos/brightline.png" alt=""></div>	
+</div>
+</div>
 
     <div class="work__container bd-grid">
         <a href="#" class="work__img" data-image="assets/img/work1.jpg" data-title="Project 1" data-description="Description for Project 1">
